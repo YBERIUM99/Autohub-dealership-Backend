@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verification Failed</title>
+    <meta charset="UTF-8" />
+    <style>
+      body { font-family: Arial; text-align: center; padding: 50px; }
+      h2 { color: red; }
+    </style>
+  </head>
+  <body>
+    <h2>❌ Invalid or expired token</h2>
+    <p>Redirecting to signup page in <span id="countdown">4</span> seconds...</p>
+    <script>
+      let sec = 4;
+      const countdown = document.getElementById("countdown");
+      setInterval(() => {
+        sec--;
+        countdown.textContent = sec;
+        if (sec === 0) window.location.href = "http://localhost:5173/signup";
+      }, 1000);
+    </script>
+  </body>
+</html>
