@@ -17,7 +17,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://autohub-dealership-frontend.onrender.com", 
+      "https://autohub-dealership.vercel.app", 
     ],
     credentials: true,
   })
