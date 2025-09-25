@@ -23,6 +23,14 @@ app.use(
   })
 );
 
+// Add this middleware for explicit CORS headers
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://autohub-dealership.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -30,6 +38,10 @@ app.use(express.static("public"));
 app.use("/api/auth", authRouter);
 app.use("/api/cars", carRouter);
 app.use("/api/products", productRoutes);
+
+
+
+
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
