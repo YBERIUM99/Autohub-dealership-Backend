@@ -22,7 +22,7 @@ const sendEmail = (email, name, token) => {
             <p style="color: #555; font-size: 16px; margin: 0.5rem 0;">Click the button below to verify your account and start buying & selling cars:</p>
 
             <a 
-              href="https://autohub-dealership-frontend.onrender.com/verify/${token}"
+              href="https://autohub-dealership.vercel.app/verify/${token}"
               style="display: inline-block; margin: 1.5rem 0; background: #007bff; padding: 0.8rem 1.5rem; border-radius: 8px; color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;"
             >
               ✅ Verify My Account
