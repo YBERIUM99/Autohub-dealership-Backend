@@ -15,7 +15,7 @@ const app = express();
 // ✅ CORS middleware
 app.use(
   cors({
-    origin: "https://autohub-dealership.vercel.app",
+    origin: "https://autohub-dealership-frontend.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
@@ -23,18 +23,18 @@ app.use(
 );
 
 // ✅ Explicit headers middleware (your version)
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://autohub-dealership.vercel.app");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "https://autohub-dealership.vercel.app");
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   
-  // ⚡ Handle preflight (OPTIONS) requests
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
+//   // ⚡ Handle preflight (OPTIONS) requests
+//   if (req.method === "OPTIONS") {
+//     return res.sendStatus(200);
+//   }
   
-  next();
-});
+//   next();
+// });
 
 app.use(express.json());
 app.use(express.static("public"));
