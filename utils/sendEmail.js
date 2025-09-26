@@ -8,7 +8,7 @@ const sendEmail = (email, name, token) => {
     {
       to: email,
       subject: "Welcome to AutoHub Dealer 🚗 - Verify Your Account",
-      from: `AutoHub Dealer <${process.env.EMAIL_USER}>`,
+      from: `AutoHub Dealer <${process.env.BREVO_USER}>`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #e2e2e2; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
           
@@ -58,7 +58,7 @@ const sendEmail = (email, name, token) => {
           }
         </style>
       `,
-      replyTo: process.env.EMAIL_USER,
+      replyTo: process.env.BREVO_USER,
     },
     (err, info) => {
       if (err) {
