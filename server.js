@@ -12,25 +12,22 @@ connectDB();
 
 const app = express();
 
-// ✅ Middleware
+// ✅ CORS middleware (this is enough)
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
-      "https://autohub-dealership.vercel.app", 
+      "http://localhost:5173", // for local dev
+      "https://autohub-dealership.vercel.app", // your deployed frontend
     ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
 
-// Add this middleware for explicit CORS headers
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://autohub-dealership.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
+// ✅ Remove your manual res.setHeader block (no need for it)
 
+// Middleware
 app.use(express.json());
 app.use(express.static("public"));
 
@@ -39,11 +36,13 @@ app.use("/api/auth", authRouter);
 app.use("/api/cars", carRouter);
 app.use("/api/products", productRoutes);
 
-
-
-
+// ✅ Root test route
+app.get("/", (req, res) => {
+  res.send("✅ AutoHub Backend is running...");
+});
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
 
 
