@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const MAILERSEND_API_KEY = process.env.MAILERSEND_API_KEY;
-const FROM_EMAIL = "test-p7kx4xwvqqmg9yjr@mlsender.net"; 
+const FROM_EMAIL = "no-reply@test-p7kx4xwvqqmg9yjr.mlsender.net"; 
 const FROM_NAME = "AutoHub Dealer";
 
 // Health check to verify API key and setup
