@@ -16,6 +16,7 @@ const productSchema = new mongoose.Schema(
       sellerPhone: {type: String, required: true,},
      sellerLocation: {type: String, required: true,},
      sellerImage: {type: String, default: ""},
+      sellerId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   },
   { timestamps: true }
 );

@@ -1,5 +1,6 @@
 const express = require("express");
 const Car = require("../models/carModel");
+const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
@@ -25,6 +26,18 @@ router.get("/:id", async (req, res) => {
     if (!car) return res.status(404).json({ message: "Car not found" });
     res.json(car);
   } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+// GET cars by seller name (first + last)
+router.get("/user", auth, async (req, res) => {
+  try {
+    const sellerName = `${req.user.firstName} ${req.user.lastName}`;
+    const cars = await Car.find({ sellerName });
+    res.json(cars);
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 });
