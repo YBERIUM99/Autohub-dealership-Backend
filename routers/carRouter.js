@@ -4,7 +4,7 @@ const auth = require("../middlewares/auth");
 
 const router = express.Router();
 
-// ✅ GET all cars
+//  GET all cars
 router.get("/", async (req, res) => {
   try {
     const cars = await Car.find();
@@ -42,5 +42,5 @@ router.get("/user", auth, async (req, res) => {
   }
 });
 
-// ✅ Add router exports
+//  Add router exports
 module.exports = router;

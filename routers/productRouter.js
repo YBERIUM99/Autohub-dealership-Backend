@@ -80,7 +80,7 @@ router.post("/", auth, async (req, res) => {
   }
 });
 
-// ✅ DELETE - Remove a car
+//  DELETE - Remove a car
 router.delete("/:id", auth, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);

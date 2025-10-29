@@ -1,4 +1,4 @@
-// routes/authRoute.js
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
@@ -11,7 +11,7 @@ dotenv.config();
 // ======================= REGISTER =======================
 router.post("/register", async (req, res) => {
   try {
-    const { firstName, lastName, email, password } = req.body; // <-- fix here
+    const { firstName, lastName, email, password } = req.body; 
 
     // check if user exists
     const existingUser = await User.findOne({ email });
@@ -24,8 +24,8 @@ router.post("/register", async (req, res) => {
 
     // create user
     const newUser = new User({
-      firstName, // <-- fix here
-      lastName,  // <-- fix here
+      firstName, 
+      lastName,  
       email,
       password: hashedPassword,
       verified: false,

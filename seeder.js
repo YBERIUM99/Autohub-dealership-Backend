@@ -1,6 +1,6 @@
 const dotenv = require("dotenv");
-const Product = require("./models/productModel");  // Product model
-const cars = require("./data.js/cars");           // your hardcoded cars file
+const Product = require("./models/productModel");  
+const cars = require("./data.js/cars");           
 const mongoose = require("mongoose");
 
 dotenv.config();
@@ -18,13 +18,13 @@ const seedData = async () => {
     // Clean cars.js before insert
     const cleanedCars = cars.map((car) => ({
       ...car,
-      price: Number(car.price?.toString().replace(/[^0-9]/g, "")) || 0,  // "$20,000" -> 20000
-      mileage: Number(car.mileage?.toString().replace(/[^0-9]/g, "")) || 0, // "30,000 km" -> 30000
-      year: Number(car.year) || new Date().getFullYear(), // fallback to current year if missing
+      price: Number(car.price?.toString().replace(/[^0-9]/g, "")) || 0,  
+      mileage: Number(car.mileage?.toString().replace(/[^0-9]/g, "")) || 0, 
+      year: Number(car.year) || new Date().getFullYear(), 
       engine: car.engine || "Unknown",
       transmission: car.transmission || "Unknown",
       fuel: car.fuel || "Unknown",
-      image: Array.isArray(car.image) ? car.image : [car.image].filter(Boolean), // ✅ always array
+      image: Array.isArray(car.image) ? car.image : [car.image].filter(Boolean), 
       sellerName: car.sellerName || "Admin",
     }));
 

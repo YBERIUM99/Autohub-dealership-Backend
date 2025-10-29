@@ -14,7 +14,7 @@ connectDB();
 
 const app = express();
 
-// ✅ CORS middleware
+//  CORS middleware
 app.use(
   cors({
     origin: "https://autohub-dealership-frontend.onrender.com",
@@ -24,13 +24,13 @@ app.use(
   })
 );
 
-// ✅ Explicit headers middleware (your version)
+// 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://autohub-dealership-frontend.onrender.com");
   res.setHeader("Access-Control-Allow-Metods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   
-  // ⚡ Handle preflight (OPTIONS) requests
+  // 
   if (req.method === "OPTIONS") {
     return res.sendStatus(200);
   }
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.static("public"));
 
-// ✅ Routes
+//  Routes
 app.use("/api/auth", authRouter);
 app.use("/api/cars", carRouter);
 app.use("/api/products", productRoutes);

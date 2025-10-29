@@ -6,7 +6,7 @@ const blacklistedTokenSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  createdAt: { type: Date, default: Date.now, expires: "1h" } // auto-delete after 1h
+  createdAt: { type: Date, default: Date.now, expires: "1h" } 
 });
 
 const BlacklistedToken = mongoose.model("BlacklistedToken", blacklistedTokenSchema);

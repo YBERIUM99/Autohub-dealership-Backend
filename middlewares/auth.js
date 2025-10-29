@@ -1,4 +1,4 @@
-// middleware/auth.js
+
 const jwt = require("jsonwebtoken");
 const BlacklistedToken = require("../models/blacklistedToken");
 

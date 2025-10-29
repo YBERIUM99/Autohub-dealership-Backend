@@ -6,7 +6,7 @@ const carSchema = new mongoose.Schema({
   year: { type: Number, required: true },
   price: { type: Number, required: true },
   color: { type: String, required: true },
-  image: { type: String, required: true } // ✅ new field for images
+  image: { type: String, required: true } 
 });
 
 module.exports = mongoose.model("Car", carSchema);
